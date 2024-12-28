@@ -23,3 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     closeMenu.addEventListener("click", closeMobileMenu);
     overlay.addEventListener("click", closeMobileMenu);
 });
+
+
+document.documentElement.style.setProperty(
+  '--scrollbar-width',
+  `${window.innerWidth - document.documentElement.clientWidth}px`
+);

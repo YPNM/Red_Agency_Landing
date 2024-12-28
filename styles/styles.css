@@ -14,9 +14,10 @@
     --color-black: #000000;
 
     --border-radius: 4.0625rem;
+    --scrollbar-width: 0px; /* Значение по умолчанию */
 }
 
-body {
+body, html {
     background: var(--color-primary);
     font-family: var(--font-primary), sans-serif;
     font-weight: 400;
@@ -30,6 +31,10 @@ body {
 
 .bg-accent {
     background-color: var(--color-primary);
+}
+
+.red {
+    color: var(--color-primary-light);
 }
 
 .button {
@@ -127,7 +132,10 @@ body {
     align-items: center;
     justify-content: space-between;
     padding-right: 0;
+    padding-left: var(--container-padding-x);
+    margin-right: 0;
     color: var(--color-secondary);
+    margin-left: max(0px, calc((100vw - (var(--container-width) + var(--container-padding-x) * 2) - var(--scrollbar-width)) / 2));
 }
 
 .hero__title {
@@ -156,6 +164,14 @@ body {
     right: 0;
     bottom: 0;
     z-index: 1;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    background: url("../images/фото-крис.png") center center no-repeat;
+    right: 0;
+    bottom: 0;
 }
 
 .hero__image{
@@ -218,27 +234,119 @@ body {
 .about__container {
     padding-left: 0;
     margin-left: -40px;
+    margin-right: max(0px, calc((100vw - (var(--container-width) + var(--container-padding-x) * 2) - var(--scrollbar-width)) / 2));
+    padding-right: var(--container-padding-x);
     justify-content: space-between;
     display: flex;
+    align-items: center;
 }
 
 .about__title {
     font-family: var(--font-accent), sans-serif;
-    color: var(--color-primary);
+    color: var(--color-primary-light);
     font-size: clamp(400px, 54.9vw, 900px);
     line-height: 0.44;
     font-weight: 400;
     vertical-align: top;
-    margin-bottom: 150px;
-    margin-top: -150px;
-    margin-right: 80px;
+    margin-bottom: 6%;
+    margin-top: -10%;
+    margin-right: 100px;
 }
 
 .about__text-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 790px;
+    border: 25px var(--color-primary-light) solid;
+    padding: 20px clamp(10px, 2.6vw, 45px);
+    margin-bottom: 20px;
+}
+
+.text-container__title {
+    color: var(--color-primary-light);
+    font-size: clamp(20px, 1.85vw ,32px);
+    font-weight: 800;
+}
+
+.text-container__title:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.text-container__text {
+    font-weight: 700;
+    line-height: 1;
+    font-size: clamp(14px, 1.38vw, 20px);
+}
+
+.text-container__sub-title {
+    color: var(--color-primary-light);
+    font-size: clamp(14px, 1.38vw, 20px);
+    font-weight: 700;
+}
+
+.separator {
+    background-color: var(--color-primary);
+    position: relative;
+    z-index: 100;
+    height: clamp(44px, 5.09vw ,88px);
+}
+
+.head {
+    padding-block: 30px;
+    background-color: white;
+}
+
+.head__container {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.head__image {
+    width: clamp(364px, 27.43vw, 474px);
+    height: auto;
+}
+
+.head__info {
+    max-width: clamp(400px, 39.98vw, 691px);
+}
+
+.head__title,
+.head__subtitle,
+.head__text {
+    display: block;
+    line-height: 1;
+}
+
+.head__title {
+    text-transform: uppercase;
+    font-size: clamp(40px, 3.7vw, 64px);
+    font-weight: 800;
+    color: var(--color-primary-light);
+    margin-bottom: 20px;
+}
+
+.head__subtitle {
+    font-size: clamp(16px, 1.38vw, 24px);
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 70px;
+}
+
+.head__text {
+    font-weight: 500;
+    font-size: clamp(16px, 1.38vw, 24px);
+}
+
+.head__contacts {
+    flex-direction: column;
+    gap: 30px;
+}
+
+.head__contacts svg {
+    width: clamp(72px, 5.61vw, 97px);
+    height: clamp(72px, 5.61vw, 97px);
 }
 
 @keyframes scroll {
@@ -249,6 +357,25 @@ body {
         transform: translateX(0); /* Уходит полностью влево */
     }
 }
+
+@media (max-width: 1000px){
+    .about__container {
+        flex-direction: column;
+        padding-inline: var(--container-padding-x);
+        margin-inline: auto;
+    }
+
+    .about__title {
+        margin: 0 0 60px 0;
+        text-align: center;
+        font-size: clamp(80px, 27.9vw, 120px);
+    }
+
+    .about__text-container {
+        border: 10px solid var(--color-primary-light);
+    }
+}
+
 
 @media (max-width: 900px) {
     .nav,
