@@ -1,5 +1,5 @@
 :root {
-    --container-width: 1200px;
+    --container-width: 1480px;
     --container-padding-x: 20px;
 
     --font-primary: 'Montserrat', sans-serif;
@@ -356,6 +356,13 @@ body, html {
     to {
         transform: translateX(0); /* Уходит полностью влево */
     }
+}
+
+@media (max-width: 1920px) {
+    :root {
+        --container-width: 1300px;
+    }
+
 }
 
 @media (max-width: 1000px){
