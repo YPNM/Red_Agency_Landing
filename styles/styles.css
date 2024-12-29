@@ -355,7 +355,7 @@ body, html {
 .head__contacts svg {
     width: clamp(72px, 5.61vw, 97px);
     height: clamp(72px, 5.61vw, 97px);
-    color: var(--color-primary)
+    color: var(--color-primary-light)
 }
 
 .command {
