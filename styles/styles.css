@@ -359,6 +359,10 @@ body, html {
     fill: currentColor;
 }
 
+.head__contacts svg path {
+    fill: var(--color-primary-light);
+}
+
 .command {
     color: white;
     position: relative;
