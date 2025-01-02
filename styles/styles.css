@@ -531,6 +531,84 @@ body, html {
     top: 8px;
 }
 
+.additional {
+    background: white;
+    padding-block: 30px;
+}
+
+.additional__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: var(--color-primary) solid 15px;
+    padding: 40px 30px;
+}
+
+.additional__text {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    text-transform: uppercase;
+    font-size: clamp(14px, 1.04vw, 18px);
+}
+
+.additional__title {
+    color: var(--color-primary-light);
+    font-size: clamp(32px, 2.31vw, 40px);
+    text-transform: uppercase;
+    margin-right: clamp(50px , 9.54vw, 190px);
+}
+
+.additional__list-container {
+    position: relative;
+}
+
+.additional__list-container::before {
+    content: '';
+    position: absolute;
+    background: var(--color-primary-light);
+    width: 14px;
+    height: 60px;
+    left: -60px;
+    top: 0;
+}
+
+.additional__item {
+    position: relative;
+    font-size: clamp(14px, 1.04vw, 18px);
+    font-weight: 500;
+    line-height: 1.3;
+    list-style: disc;
+}
+
+.partners__title {
+    font-style: italic;
+    font-size: clamp(40px, 5.55vw, 96px);
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.partners__title-accent {
+    text-transform: uppercase;
+}
+
+.partners__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки в первой и третьей строках */
+    grid-auto-rows: auto; /* Автоматическая высота строк */
+    gap: 20px; /* Расстояние между элементами */
+    justify-content: center; /* Центрирование всей сетки */
+}
+
+.partners__grid img {
+    justify-self: center; /* Центрирование логотипов в своих ячейках */
+    align-self: center;
+}
+
+
+
 @keyframes scroll {
     from {
         transform: translateX(-100%); /* Начало строки */
@@ -638,6 +716,39 @@ body, html {
         text-align: center;
         margin-top: -10%;
     }
+
+    .additional {
+        padding-top: 0;
+    }
+
+    .additional__text {
+        position: static;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .additional__container {
+        flex-direction: column;
+        border: none;
+    }
+
+    .additional__title {
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 32px;
+    }
+
+    .additional__list-container {
+        padding: 25px 35px;
+        max-width: 376px;
+        border: 10px solid var(--color-primary-light);
+    }
+
+    .additional__list-container::before {
+        display: none;
+    }
+
 }
 
 
